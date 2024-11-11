@@ -1,4 +1,5 @@
-﻿namespace InvoiceSender;
+﻿
+namespace InvoiceSender;
 
 public class User
 {
