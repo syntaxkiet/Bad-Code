@@ -3,5 +3,5 @@
 public interface IDatabase
 {
     User GetUser(string email);
-    Invoice GetInvoice(int userId);
+    Invoice? GetInvoice(int userId);
 }
