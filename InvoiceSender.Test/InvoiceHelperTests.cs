@@ -3,6 +3,7 @@ using System.Reflection;
 
 public class InvoiceHelperTests
 {
+    // TODO: Add test case for user with 2 invoices
     [Theory]
     [InlineData("daniel@mindfulstack.se", 1)]
     [InlineData("ruben@mindfulstack.se", 0)]
@@ -19,6 +20,7 @@ public class InvoiceHelperTests
         Assert.Equal(expected, actual.Count);
     }
     
+    // TODO: Ajust for multiple messages
     [Fact]
     public void SendsCorrectMessage()
     {
@@ -36,6 +38,11 @@ public class InvoiceHelperTests
         Assert.Equal(expected, actual[0]);
     }
 
+    [Fact]
+    public void CalculatesDueDateProperly()
+    {
+        // TODO: Test different due dates (especially around 0)
+    }
     
     [Fact]
     public void PrivateMethodTest()

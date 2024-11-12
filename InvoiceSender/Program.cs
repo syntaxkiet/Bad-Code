@@ -33,8 +33,7 @@ public class InvoiceHelper
         _db = db;
         _emailSender = emailSender;
     }
-    
-    // TODO: Test this method!
+
     public List<string> Run(string email)
     {
         var messages = new List<string>();
