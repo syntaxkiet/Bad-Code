@@ -35,27 +35,26 @@ public class InvoiceHelper
     }
     
     // TODO: Test this method!
-    public string? Run(string email)
+    public List<string> Run(string email)
     {
+        var messages = new List<string>();
         var user = _db.GetUser(email);
         // TODO: Enable several invoices per user
         // Could this be more than one?
         var invoice = _db.GetInvoice(user.Id);
         if (invoice is null)
-            return null;
+            return messages;
         
         var dueDate = invoice.DueDate;
-        var daysToDueDate = (dueDate - DateTime.Now).Days;
+        var daysToDueDate = (dueDate.Date - DateTime.Now.Date).Days;
 
         var message = GetInvoice(user.Name, invoice.Amount, daysToDueDate);
         SendInvoice(message, user.Email);
-        return message;
+        messages.Add(message);
+        
+        return messages;
     }
-
-    // TODO: Test these two methods
-    // They are private, so we can't test them directly, or can we?
-    // TODO: How can we test these methods?
-    // TODO: Should we test private methods?
+    
     private string GetInvoice(string name, decimal amount, int daysToDueDate)
     {
         // Note: This method has tests using reflection, but it's not the best way to test it
