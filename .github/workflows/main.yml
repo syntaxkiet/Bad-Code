@@ -12,6 +12,8 @@ on:
 jobs:
   build-project:
     runs-on: ubuntu-latest
+    env:
+      amazing-nr: 42
     steps:
     - name: Step that can fail
       run: |
@@ -25,12 +27,12 @@ jobs:
       run: dotnet build
 
     - name: on-failure
-      if: failure()
+      if: ${{ failure() }}
       run: echo "oops"
 
     - name: always
       if: always()
-      run: echo "I always run!"
+      run: echo "I always run! Because $amazing-nr is amazing"
 
   github-context:
     runs-on: ubuntu-latest
