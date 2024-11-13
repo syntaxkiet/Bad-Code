@@ -13,7 +13,7 @@ jobs:
   build-project:
     runs-on: ubuntu-latest
     env:
-      amazing-nr: 42
+      amazingNumber: 42
     steps:
     - name: Step that can fail
       run: |
@@ -32,7 +32,7 @@ jobs:
 
     - name: always
       if: always()
-      run: echo "I always run! Because $amazing-nr is amazing"
+      run: echo "I always run! Because $amazingNumber is amazing"
 
   github-context:
     runs-on: ubuntu-latest
