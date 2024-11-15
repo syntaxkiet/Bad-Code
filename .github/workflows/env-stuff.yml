@@ -4,6 +4,8 @@ jobs:
   print-my-variable:
     runs-on: ubuntu-latest
     environment: Test
+    env:
+      MIN_VARIABEL: ${{ vars.MIN_VARIABEL }} 
     steps:
       - run: echo "${{ vars.MIN_VARIABEL }}"
       - run: echo $MIN_VARIABEL
