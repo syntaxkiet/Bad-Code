@@ -1,0 +1,16 @@
+name: List all folders of the repo
+
+on: workflow_dispatch
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v4
+
+    - name: List all files and folders
+      run: ls -la
+    
+    
+  
