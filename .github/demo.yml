@@ -1,0 +1,45 @@
+name: Demo project
+
+on: workflow_dispatch
+
+jobs: 
+  do-something:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+      
+    - name: Set up .net
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0'
+
+    - name: Restore dependency
+      run: dotnet restore
+
+    - name: Build the project
+      run: dotnet build --no restore
+
+    - name: Run tests
+      run: dotnet test --no build
+
+    - name: Write some random text with echo
+      run: | 
+        echo "Write some random text"
+        echo "Write some more random texts"
+
+    - name: Write a different set of random texts
+      run: |
+        echo "Writing something that might or might not work"
+        
+      
+      
+      
+      
+
+      
+    
+      
+      
+
+    
